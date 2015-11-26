@@ -1,0 +1,8 @@
+Read Me!
+
+#####to work the upload files uncomment in php.ini file this extension=php_fileinfo.dll
+C:\xampp\php
+
+note:
+ files that to be upload is not actual similar in the website file
+only ms application in enabled in the site rar, etc or any are not valid in the site.
