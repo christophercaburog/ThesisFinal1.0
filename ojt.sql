@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2015 at 03:16 AM
+-- Generation Time: Dec 19, 2015 at 04:24 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `isubmit` (
   `isubmit_id` int(5) unsigned zerofill NOT NULL,
   `student_id` int(5) unsigned zerofill NOT NULL,
   `checklist_id` int(5) unsigned zerofill NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `isubmit`
@@ -283,7 +283,14 @@ INSERT INTO `isubmit` (`isubmit_id`, `student_id`, `checklist_id`) VALUES
 (00183, 00010, 00002),
 (00184, 00010, 00002),
 (00185, 00010, 00002),
-(00186, 00010, 00002);
+(00186, 00010, 00002),
+(00187, 00033, 00001),
+(00188, 00033, 00002),
+(00189, 00033, 00003),
+(00190, 00033, 00004),
+(00191, 00033, 00005),
+(00192, 00033, 00006),
+(00193, 00033, 00007);
 
 -- --------------------------------------------------------
 
@@ -362,31 +369,35 @@ CREATE TABLE IF NOT EXISTS `student` (
   `coordinator` varchar(100) NOT NULL,
   `access_code` varchar(255) NOT NULL,
   `sem` varchar(255) NOT NULL,
-  `is_delete` int(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+  `is_delete` int(255) NOT NULL,
+  `student_image` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`student_id`, `fname`, `mname`, `lname`, `address`, `gender`, `dob`, `contact`, `course_id`, `year`, `block`, `date`, `sy`, `dir`, `coordinator`, `access_code`, `sem`, `is_delete`) VALUES
-(00010, 'Burnok', 'sample', 'hahahah', 'wedewdwd', 1, '06/08/2015', '+999-999-999-999', 00004, '4', 'A', '09/08/2015', '2015-2016', 'Burnok_Sample_Hahahah', 'Christopher Raposon Caburog', '-21-3213', 'First Sem', 0),
-(00013, 'christopher', 'raposon', 'caburog', '49 matimtiman', 1, '08/13/2015', '+639-099-971-573', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Christopher_Raposon_Caburog', 'christopher raposon caburog', '', '', 0),
-(00014, 'acacac', 'asdadad', 'asdasdad', 'asdadadasd', 1, '09/06/2015', '+234-234-242-424', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Acacac_Asdadad_Asdasdad', 'christopher raposon caburog', '-3143', '', 0),
-(00015, 'dssdfsfsf', 'sdfsssss', 'ssssssssssssssss', 'sssssssssssss', 0, '09/06/2015', '+342-424-242-424', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Dssdfsfsf_Sdfsssss_Ssssssssssssssss', 'christopher raposon caburog', '-3468', '', 0),
-(00017, 'asdsasdad', 'asdada', 'asdasdasd', 'asdasd', 1, '09/01/2015', '+213-131-313-131', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Asdsasdad_Asdada_Asdasdasd', 'christopher raposon caburog', '-3152', '', 0),
-(00018, 'patrick', 'pat', 'pat', 'pat', 1, '05/12/2015', '+232-323-232-323', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Patrick_Pat_Pat', 'christopher raposon caburog', '-1123', '', 0),
-(00019, 'pa', 'pat', 'pat', 'pat', 1, '07/08/2013', '+221-222-111-111', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Pa_Pat_Pat', 'christopher raposon caburog', '-2133', '', 0),
-(00020, 'sample', 'sample', 'sample', 'sample', 1, '09/01/2014', '+234-242-342-342', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Sample_Sample_Sample', 'christopher raposon caburog', '-2244', '', 0),
-(00021, 'burnok', 'burnok', 'burnok', 'asdaadad', 1, '09/01/2015', '+344-455-152-555', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Burnok_Burnok_Burnok', 'christopher raposon caburog', '-55-5555', 'First Sem', 0),
-(00023, 'Patrick', 'V', 'Rojero', 'Ligao, City', 1, '08/04/2013', '+899-888-998-999', 00004, '4', 'A', '10/03/2015', '2015-2016', 'Patrick_V_Rojero', 'Christopher Raposon Caburog', '-21-3413', 'Second Sem', 0),
-(00024, 'Vince', 'Vaughn', 'Vaughn', 'LA California', 1, '03/16/2015', '+999-999-999-999', 00009, '4', 'B', '10/07/2015', '2015-2016', 'Vince_Vaughn_Vaughn', 'Caburog Raposon Caburog', '-12-1221', 'First Sem', 1),
-(00025, 'Vince', 'Vaughn', 'Vaughn', 'LA California', 1, '03/16/2015', '+999-999-999-999', 00009, '4', 'B', '10/07/2015', '2015-2016', 'Vince_Vaughn_Vaughn', 'Caburog Raposon Caburog', '-12-1221', 'First Sem', 0),
-(00027, 'Maine', 'Alden', 'Mendoza', 'Bulacan, PH', 1, '06/07/2015', '+923-423-423-423', 00001, '4', 'B', '10/26/2015', '2015-2016', 'Maine_Alden_Mendoza', 'test test test', '-32-3231', 'Second Sem', 0),
-(00029, 'nursing', 'nursing', 'nursing', 'nursing', 1, '10/11/2015', '+232-423-423-423', 00013, '4', 'A', '10/26/2015', '2015-2016', 'Nursing_Nursing_Nursing', 'test_nursing test_nursing test_nursing', '-11-1111', 'Second Sem', 0),
-(00030, 'VanceA', 'Bello', 'Bello', 'Qc', 1, '08/10/2015', '+121-212-122-121', 00013, '4', 'A', '11/01/2015', '2015-2016', 'VanceA_Bello_Bello', 'test_nursing test_nursing test_nursing', '-04-9922', 'First Sem', 0),
-(00031, 'James', 'Manongsong', 'Roi', 'Quezon City', 1, '08/02/2015', '+939-399-393-939', 00013, '4', 'A', '11/05/2015', '2015-2016', 'James_Manongsong_Roi', 'test_nursing test_nursing test_nursing', '-31-2000', 'Second Sem', 0),
-(00032, 'BSIT', 'BSIT', 'BSIT', 'BSIT', 1, '07/05/2015', '+121-212-121-212', 00002, '4', 'B', '11/06/2015', '2015-2016', 'BSIT_BSIT_BSIT', 'bist bsit bsit', '-91-9288', 'First Sem', 0);
+INSERT INTO `student` (`student_id`, `fname`, `mname`, `lname`, `address`, `gender`, `dob`, `contact`, `course_id`, `year`, `block`, `date`, `sy`, `dir`, `coordinator`, `access_code`, `sem`, `is_delete`, `student_image`) VALUES
+(00010, 'Burnok', 'sample', 'hahahah', 'wedewdwd', 1, '06/08/2015', '+999-999-999-999', 00004, '4', 'A', '09/08/2015', '2015-2016', 'Burnok_Sample_Hahahah', 'Christopher Raposon Caburog', '-21-3213', 'First Sem', 0, ''),
+(00013, 'christopher', 'raposon', 'caburog', '49 matimtiman', 1, '08/13/2015', '+639-099-971-573', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Christopher_Raposon_Caburog', 'christopher raposon caburog', '', '', 0, ''),
+(00014, 'acacac', 'asdadad', 'asdasdad', 'asdadadasd', 1, '09/06/2015', '+234-234-242-424', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Acacac_Asdadad_Asdasdad', 'christopher raposon caburog', '-3143', '', 0, ''),
+(00015, 'dssdfsfsf', 'sdfsssss', 'ssssssssssssssss', 'sssssssssssss', 0, '09/06/2015', '+342-424-242-424', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Dssdfsfsf_Sdfsssss_Ssssssssssssssss', 'christopher raposon caburog', '-3468', '', 0, ''),
+(00017, 'asdsasdad', 'asdada', 'asdasdasd', 'asdasd', 1, '09/01/2015', '+213-131-313-131', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Asdsasdad_Asdada_Asdasdasd', 'christopher raposon caburog', '-3152', '', 0, ''),
+(00018, 'patrick', 'pat', 'pat', 'pat', 1, '05/12/2015', '+232-323-232-323', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Patrick_Pat_Pat', 'christopher raposon caburog', '-1123', '', 0, ''),
+(00019, 'pa', 'pat', 'pat', 'pat', 1, '07/08/2013', '+221-222-111-111', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Pa_Pat_Pat', 'christopher raposon caburog', '-2133', '', 0, ''),
+(00020, 'sample', 'sample', 'sample', 'sample', 1, '09/01/2014', '+234-242-342-342', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Sample_Sample_Sample', 'christopher raposon caburog', '-2244', '', 0, ''),
+(00021, 'burnok', 'burnok', 'burnok', 'asdaadad', 1, '09/01/2015', '+344-455-152-555', 00003, '4', 'A', '09/15/2015', '2015-2016', 'Burnok_Burnok_Burnok', 'christopher raposon caburog', '-55-5555', 'First Sem', 0, ''),
+(00023, 'Patrick', 'V', 'Rojero', 'Ligao, City', 1, '08/04/2013', '+899-888-998-999', 00004, '4', 'A', '10/03/2015', '2015-2016', 'Patrick_V_Rojero', 'Christopher Raposon Caburog', '-21-3413', 'Second Sem', 0, ''),
+(00024, 'Vince', 'Vaughn', 'Vaughn', 'LA California', 1, '03/16/2015', '+999-999-999-999', 00009, '4', 'B', '10/07/2015', '2015-2016', 'Vince_Vaughn_Vaughn', 'Caburog Raposon Caburog', '-12-1221', 'First Sem', 1, ''),
+(00025, 'Vince', 'Vaughn', 'Vaughn', 'LA California', 1, '03/16/2015', '+999-999-999-999', 00009, '4', 'B', '10/07/2015', '2015-2016', 'Vince_Vaughn_Vaughn', 'Caburog Raposon Caburog', '-12-1221', 'First Sem', 0, ''),
+(00027, 'Maine', 'Alden', 'Mendoza', 'Bulacan, PH', 1, '06/07/2015', '+923-423-423-423', 00001, '4', 'B', '10/26/2015', '2015-2016', 'Maine_Alden_Mendoza', 'test test test', '-32-3231', 'Second Sem', 0, 'upload/f9b278fb4a6bdea3628d3f8aa101ec3502555373.jpg'),
+(00029, 'nursing', 'nursing', 'nursing', 'nursing', 1, '10/11/2015', '+232-423-423-423', 00013, '4', 'A', '10/26/2015', '2015-2016', 'Nursing_Nursing_Nursing', 'test_nursing test_nursing test_nursing', '-11-1111', 'Second Sem', 0, ''),
+(00030, 'VanceA', 'Bello', 'Bello', 'Qc', 1, '08/10/2015', '+121-212-122-121', 00013, '4', 'A', '11/01/2015', '2015-2016', 'VanceA_Bello_Bello', 'test_nursing test_nursing test_nursing', '-04-9922', 'First Sem', 0, ''),
+(00031, 'James', 'Manongsong', 'Roi', 'Quezon City', 1, '08/02/2015', '+939-399-393-939', 00013, '4', 'A', '11/05/2015', '2015-2016', 'James_Manongsong_Roi', 'test_nursing test_nursing test_nursing', '-31-2000', 'Second Sem', 0, ''),
+(00032, 'BSIT', 'BSIT', 'BSIT', 'BSIT', 1, '07/05/2015', '+121-212-121-212', 00002, '4', 'B', '11/06/2015', '2015-2016', 'BSIT_BSIT_BSIT', 'bist bsit bsit', '-91-9288', 'First Sem', 0, ''),
+(00033, 'Christopher', 'Raposon', 'Caburog', 'Quezon, City', 1, '01/06/2013', '+63-909-999-9999', 00001, '4', 'A', '12/08/2015', '2015-2016', 'Christopher_Raposon_Caburog', 'test test test', '12-1231', 'First Sem', 0, 'upload/f9b278fb4a6bdea3628d3f8aa101ec3502555373.jpg'),
+(00034, 'sadasdsad', 'asdasdasd', 'asdasdasd', 'asdasdad', 1, '12/29/2015', '+63-213-123-1232', 00001, '4', 'A', '12/13/2015', '2015-2016', 'Sadasdsad_Asdasdasd_Asdasdasd', 'test test test', '21-3213', 'First Sem', 0, 'upload/422cbcb35c3c4dcb4728898134574a2dd65d0274.jpg'),
+(00035, 'James Roi Manungsong', 'manungsong', 'manungosng', 'ligao', 1, '12/28/2015', '+63-214-234-3243', 00001, '4', 'A', '12/19/2015', '2015-2016', 'James_Roi_Manungsong_Manungsong_Manungosng', 'test test test', '2000-12121', 'First Sem', 0, 'upload/2b8354534dd8e63cf78b23d3e0494abbd0e2dde9.png');
 
 -- --------------------------------------------------------
 
@@ -413,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `work` (
   `student_id` int(5) unsigned zerofill NOT NULL,
   `workdata_id` int(5) unsigned zerofill NOT NULL,
   `value` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `work`
@@ -538,7 +549,28 @@ INSERT INTO `work` (`work_id`, `student_id`, `workdata_id`, `value`) VALUES
 (00221, 00032, 00004, '+999-192-919-291'),
 (00222, 00032, 00005, 'angie_amaro@yahoo.com'),
 (00223, 00032, 00006, '09/11/2015'),
-(00224, 00032, 00007, '25/11/2015');
+(00224, 00032, 00007, '25/11/2015'),
+(00225, 00033, 00001, 'BrewedLogic Inc.'),
+(00226, 00033, 00002, 'Makati, City'),
+(00227, 00033, 00003, 'Makati, City'),
+(00228, 00033, 00004, '+991-923-912-939'),
+(00229, 00033, 00005, '@yahooascasc'),
+(00230, 00033, 00006, '09/12/2015'),
+(00231, 00033, 00007, '30/12/2015'),
+(00232, 00034, 00001, 'weqeqweqwe'),
+(00233, 00034, 00002, 'qweqweqwe'),
+(00234, 00034, 00003, 'qweqweqweq'),
+(00235, 00034, 00004, '+63-123-123-1231'),
+(00236, 00034, 00005, 'asdasdasdasd'),
+(00237, 00034, 00006, '21/12/2015'),
+(00238, 00034, 00007, '30/12/2015'),
+(00239, 00035, 00001, 'asdadasdsadsa'),
+(00240, 00035, 00002, 'asdasdsadasd'),
+(00241, 00035, 00003, 'asdasdasdas'),
+(00242, 00035, 00004, '+63-123-123-1232'),
+(00243, 00035, 00005, 'asdasdad@yahoo.com'),
+(00244, 00035, 00006, '24/12/2015'),
+(00245, 00035, 00007, '30/12/2015');
 
 -- --------------------------------------------------------
 
@@ -728,7 +760,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `isubmit`
 --
 ALTER TABLE `isubmit`
-  MODIFY `isubmit_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=187;
+  MODIFY `isubmit_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=194;
 --
 -- AUTO_INCREMENT for table `message`
 --
@@ -743,7 +775,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+  MODIFY `student_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `submit`
 --
@@ -753,7 +785,7 @@ ALTER TABLE `submit`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `work_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=225;
+  MODIFY `work_id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=246;
 --
 -- AUTO_INCREMENT for table `workdata`
 --
